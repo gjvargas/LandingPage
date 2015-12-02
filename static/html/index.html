@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QuikSplit</title>
+<link rel="stylesheet" type="text/css" href="static/css/index.css">
+<script type="text/javascript" src="static/js/index.js"></script>
+</head>
+<body>
+
+<img id="food" src="static/img/food.jpg">
+<img id="bg" src="static/img/gradient-background.jpg">
+
+<div id="wrapper">
+    <div id="left">
+        <h1 id="header">QuikSplit</h1>
+        <span class="description">
+        Splitting bills can be a pain. How about an app that scans receipts 
+        and lets users pick their dishes, then handles tax, tip, and 
+        payments?
+
+        <br>
+        <br>
+
+        The QuikSplit app will be perfect for eating out with friends. To 
+        split a bill, simply:
+
+        <br>
+        <br>
+        1. Snap a picture of your receipt
+        <br>
+        2. Match each item to its purchaser
+        <br>
+        3. Let QuikSplit handle all your Venmo requests
+        </span>
+    </div>
+    <div id="right">
+        <h1 class="placeholder">QuikSplit</h1>
+        <span class="description">
+            We're still in the early phases of building the app.
+            If you're interested in downloading the app
+            and would be willing to pay
+            <span id="cost"></span>, please enter your 
+            email address below. We'll hook you up with
+            the beta version as soon as it's ready.
+        </span>
+        <form action="/submit" method="post">
+            <input type="text" placeholder=" Email Address" name="email"></input>
+            <input id="form_cost" type="hidden" name="cost"></input>
+            <input type="submit"></input>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
