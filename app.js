@@ -1,8 +1,14 @@
 var express = require('express');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 var Subscriber = require('./model.js');
 var app = express();
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 
 var connection_string = 'mongodb://localhost:27017/quiksplit'
 mongoose.connect(connection_string);
@@ -35,15 +41,15 @@ app.get('/static/fonts/OpenSans-Regular.ttf', function (req, res) {
 
 app.post('/submit', function(req, res) {
     var sub = new Subscriber({
-        email : req.body.email,
-        cost : req.body.cost
+        email : req.body.user.email,
+        cost : req.body.user.cost
     });
-    Subscriber.register(sub, function(err, subscriber) {
+    sub.save(function(err, subscriber) {
         res.redirect('/thanks');
     });
 });
 
-var server = app.listen(3000, function () {
+var server = app.listen(80, function () {
     var host = server.address().address;
     var port = server.address().port;
 

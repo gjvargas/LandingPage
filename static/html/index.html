@@ -43,9 +43,9 @@
             email address below. We'll hook you up with
             the beta version as soon as it's ready.
         </span>
-        <form action="/submit" method="post">
-            <input type="text" placeholder=" Email Address" name="email"></input>
-            <input id="form_cost" type="hidden" name="cost"></input>
+        <form method="post" action="/submit" >
+            <input type="text" placeholder=" Email Address" name="user[email]"></input>
+            <input id="form_cost" type="hidden" name="user[cost]"></input>
             <input type="submit"></input>
         </form>
     </div>
